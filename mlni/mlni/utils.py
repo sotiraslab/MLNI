@@ -126,14 +126,14 @@ def sample_dpp(evalue, evector, k=None):
     if k == None:
         # choose eigenvectors randomly
         evalue = np.divide(evalue, (1 + evalue))
-        evector = np.where(np.random.random(evalue.shape[0]) <= evalue)[0]
+        v = np.where(np.random.random(evalue.shape[0]) <= evalue)[0]
     else:
         v = sample_k(evalue, k) ## v here is a 1d array with size: k
 
     k = v.shape[0]
     v = v.astype(int)
     v = [i - 1 for i in v.tolist()]  ## due to the index difference between matlab & python, here, the element of v is for matlab
-    V = evector[:, v]
+    V = v #evector[:, v]
 
     ## iterate
     y = np.zeros(k)
