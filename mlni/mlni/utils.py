@@ -133,7 +133,7 @@ def sample_dpp(evalue, evector, k=None):
     k = v.shape[0]
     v = v.astype(int)
     v = [i - 1 for i in v.tolist()]  ## due to the index difference between matlab & python, here, the element of v is for matlab
-    V = v #evector[:, v]
+    V = evector[:, v]
 
     ## iterate
     y = np.zeros(k)
